@@ -1,0 +1,15 @@
+default:
+  type: "mysql"
+  host: "localhost"
+  port: 3306
+  username: appuser
+  password: appuser
+  database: campfire_db_development
+  logging: true
+  entities:
+    - dist/**/*.entity.js
+  migrations:
+    - dist/migrations/*{.ts,.js}
+  cli:
+    migrationsDir: "src/migrations"
+    entitiesDir: "src/domain/models"
