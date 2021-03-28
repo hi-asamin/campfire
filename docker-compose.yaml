@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  rdb:
+    build: rdb
+    container_name: db-server
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./rdb/mysql-data:/var/lib/mysql
+      - ./rdb/conf.d:/etc/mysql/conf.d
+      - ./rdb/log:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: apluser
+      MYSQL_PASSWORD: apluser
+      TZ: 'Asia/Tokyo'
+    ports:
+        - "3306:3306"
